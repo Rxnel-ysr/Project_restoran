@@ -13,31 +13,26 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Resto<i>RUN</i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Siswa</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('main.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Guru</a>
+                        <a class="nav-link" href="">Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Jurusan</a>
+                        <a class="nav-link" href="#">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Kelas</a>
+                        <a class="nav-link" href="{{ route('main.kokis.index') }}">koki-Koki</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
@@ -61,8 +56,8 @@
                         <td>{{ $Koki->divisi }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('Kokis.edit', $Koki->id) }}" class="btn btn-warning me-3">Edit</a>
-                                <form action="{{ route('Kokis.destroy', $Koki->id) }}" method="post">
+                                <a href="{{ route('main.kokis.edit', $Koki->id) }}" class="btn btn-warning me-3">Edit</a>
+                                <form action="{{ route('main.kokis.destroy', $Koki->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Hapus</button>
@@ -75,7 +70,7 @@
                     @endforelse
                 </tbody>
             </table>
-            <a href="{{ route('Kokis.create') }}" type="button" class="btn btn-primary">Tambah Data</a>
+            <a href="{{ route('main.kokis.create') }}" type="button" class="btn btn-primary">Tambah Data</a>
         </div>
     </div>
 </body>

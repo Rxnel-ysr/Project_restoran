@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Koki;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 
 class KokiController extends Controller
 {
@@ -13,7 +15,7 @@ class KokiController extends Controller
     public function index()
     {
         $Kokis = Koki::all();
-        return view('Koki.index', compact('Kokis'));
+        return view('main.koki.index', compact('Kokis'));
     }
 
     /**
@@ -21,7 +23,7 @@ class KokiController extends Controller
      */
     public function create()
     {
-        return view('Koki.create');
+        return view('main.koki.create');
     }
 
     /**
@@ -29,8 +31,15 @@ class KokiController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+            'nama' => 'required',
+            'divisi'=>'required'
+        ]);
+
+        if($validator->fails()) return redirect()->route('main.kokis.create')->withInput()->withErrors($validator);
+
         Koki::query()->create($request->all());
-        return redirect()->route('Kokis.index');
+        return redirect()->route('main.kokis.index');
     }
 
     /**
@@ -47,7 +56,7 @@ class KokiController extends Controller
     public function edit(string $id)
     {
         $Koki = Koki::query()->findOrFail($id);
-        return view('Koki.edit', compact('Koki'));
+        return view('main.koki.edit', compact('Koki'));
     }
 
     /**
@@ -55,8 +64,15 @@ class KokiController extends Controller
      */
     public function update(Request $request, string $id)
     {
+         $validator = Validator::make($request->all(),[
+            'nama' => 'required',
+            'divisi'=>'required'
+        ]);
+
+        if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
         Koki::query()->findOrFail($id)->update($request->all());
-        return redirect()->route('Kokis.index');
+        return redirect()->route('main.kokis.index');
     }
 
     /**
@@ -65,6 +81,6 @@ class KokiController extends Controller
     public function destroy(string $id)
     {
         Koki::query()->findOrFail($id)->delete();
-        return redirect()->route('Kokis.index');
+        return redirect()->route('main.kokis.index');
     }
 }

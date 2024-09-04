@@ -13,20 +13,26 @@
     <div class="p-3">
         <h1>Edit Data Koki</h1>
         <div class="">
-            <form action="{{ route('Kokis.update', $Koki->id) }}" method="POST">
+            <form action="{{ route('main.kokis.update', $Koki->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
                     <input type="text" name="nama" class="form-control" value="{{ $Koki->nama}}"
                         id="nama">
+                        @error('nama')
+                            <small>Isi dengan nama pengganti</small>
+                        @enderror
                 </div>
                 <div class="mb-3">
                     <label for="nisn" class="form-label">Divisi</label>
-                    <input type="text" name="divisi" class="form-control" value="{{ $Koki->divisi }}"
-                        id="divisi">
+                    <select name="divisi" id="divisi" class="form-control">
+                        <option value="Soup">Soup</option>
+                        <option value="Pasta">Pasta</option>
+                        <option value="Desert">Desert</option>
+                    </select>
                 </div>
-                <a href="{{ route('Kokis.index') }}" type="button" class="btn btn-warning">Kembali</a>
+                <a href="{{ route('main.kokis.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Kirim</button>
             </form>
         </div>

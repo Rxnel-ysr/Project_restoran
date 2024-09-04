@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KokiController;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('main', [MainController::class, 'index'])->name('main.index');
 
-Route::get('Kokis', [KokiController::class, 'index'])->name('Kokis.index');
-Route::get('Kokis/create', [KokiController::class, 'create'])->name('Kokis.create');
-Route::post('Kokis', [KokiController::class, 'store'])->name('Kokis.store');
-Route::get('Kokis/edit/{id}', [KokiController::class, 'edit'])->name('Kokis.edit');
- Route::put('Kokis/{id}', [KokiController::class, 'update'])->name('Kokis.update');
- Route::delete('Kokis/{id}', [KokiController::class, 'destroy'])->name('Kokis.destroy');
+
+Route::get('main/kokis', [KokiController::class, 'index'])->name('main.kokis.index');
+Route::get('main/kokis/create', [KokiController::class, 'create'])->name('main.kokis.create');
+Route::post('main/kokis', [KokiController::class, 'store'])->name('main.kokis.store');
+Route::get('main/kokis/edit/{id}', [KokiController::class, 'edit'])->name('main.kokis.edit');
+Route::put('main/kokis/{id}', [KokiController::class, 'update'])->name('main.kokis.update');
+Route::delete('main/kokis/{id}', [KokiController::class, 'destroy'])->name('main.kokis.destroy');
