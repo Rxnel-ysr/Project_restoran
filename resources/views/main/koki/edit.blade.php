@@ -21,7 +21,7 @@
                     <input type="text" name="nama" class="form-control" value="{{ $Koki->nama}}"
                         id="nama">
                         @error('nama')
-                            <small>Isi dengan nama pengganti</small>
+                            <small>{{ $message }}</small>
                         @enderror
                 </div>
                 <div class="mb-3">

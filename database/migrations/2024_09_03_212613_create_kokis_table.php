@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('kokis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama')->unique();
             $table->string('divisi');
             $table->timestamps();
         });

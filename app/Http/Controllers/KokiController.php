@@ -32,7 +32,7 @@ class KokiController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'nama' => 'required',
+            'nama' => 'required|unique:kokis,nama,' . $request->id,
             'divisi'=>'required'
         ]);
 
@@ -65,7 +65,7 @@ class KokiController extends Controller
     public function update(Request $request, string $id)
     {
          $validator = Validator::make($request->all(),[
-            'nama' => 'required',
+            'nama' => 'required|unique:kokis,nama,' . $request->id,
             'divisi'=>'required'
         ]);
 

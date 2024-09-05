@@ -40,16 +40,15 @@
         </div>
     </nav>
     <div class="p-3">
-        <h1>Data Pelayan Restoran</h1>
+        <h1>Data Makanan Restoran</h1>
         <div class="">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jenis Kelamin</th>
-                        <th schope="col">Bekerja sejak</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Menu</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Manipulate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,11 +59,11 @@
                         <td>{{ $Makanan->harga }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('main.menus.makanan.edit', $Pelayan->id) }}" class="btn btn-primary me-3">Edit</a>
-                                <form action="{{ route('main.menus.makanan..destroy', $Pelayan->id) }}" method="post">
+                                <a href="{{ route('main.menus.makanan.edit', $Makanan->id) }}" class="btn btn-primary me-3">Edit</a>
+                                <form action="{{ route('main.menus.makanan..destroy', $Makanan->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Pecat</button>
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
                                 </form>
                             </div>
                         </td>
@@ -74,7 +73,7 @@
                     @endforelse
                 </tbody>
             </table>
-            <a href="{{ route('main.menus.makanan.create') }}" type="button" class="btn btn-primary">Rekrut Pelayan</a>
+            <a href="{{ route('main.menus.makanan.create') }}" type="button" class="btn btn-primary">Tambah Makanan</a>
         </div>
     </div>
 </body>

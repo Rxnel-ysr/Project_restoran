@@ -31,7 +31,7 @@ class PelayanController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'nama' => 'required',
+            'nama' => 'required|unique:pelayans,nama,' . $request->id,
             'jenis_kelamin'=>'required'
         ]);
 
@@ -64,7 +64,7 @@ class PelayanController extends Controller
     public function update(Request $request, string $id)
     {
         $validator = Validator::make($request->all(),[
-            'nama' => 'required',
+            'nama' => 'required|unique:pelayans,nama,' . $request->id,
             'jenis_kelamin'=>'required'
         ]);
 

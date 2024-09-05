@@ -20,7 +20,7 @@
                     <label for="name" class="form-label">Nama</label>
                     <input type="text" name="nama" class="form-control" id="name">
                     @error('nama')
-                        <small>Nama Perlu Diisi</small>
+                        <small>{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="mb-3">
