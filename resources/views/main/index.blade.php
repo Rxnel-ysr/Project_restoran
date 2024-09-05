@@ -75,9 +75,9 @@
 
 <nav>
     <a href="#">Beranda</a>
-    <a href="{{ route('main.menus.index') }}">Menu</a>
+    <a href="{{ route('main.menu.index') }}">Menu</a>
     <a href="{{ route('main.pelayans.index') }}"><abbr title="Para pelayan yang akan mengirim dan menyajikan pesanan mu!">Pelayan</abbr></a>
-    <a href="{{ route('main.kokis.index') }}"><abbr title="Para koki yang membuat pesanan mu!">Koki koki</abbr></a>
+    <a href="{{ route('main.kokis.index') }}"><abbr title="Para koki yang membuat pesanan mu!">Koki Koki</abbr></a>
 </nav>
 
 <div class="container">

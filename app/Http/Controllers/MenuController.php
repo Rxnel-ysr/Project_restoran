@@ -28,18 +28,20 @@ class MenuController extends Controller
     public function indexOfMinuman()
     {
         $Minumans = Minuman::all();
+        
         return view('main.menu.minuman.index', compact('Minumans'));
     }
 
     public function indexOfSnack()
     {
-        $Snacks = Snack::all(); 
+        $Snacks = Snack::all();
         return view('main.menu.snack.index', compact('Snacks'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
+
     public function createOfMakanan()
     {
         return view('main.menu.makanan.create');
@@ -49,20 +51,52 @@ class MenuController extends Controller
     {
         return view('main.menu.minuman.create');
     }
+
+    public function createOfSnack()
+    {
+        return view('main.menu.snack.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function storeOfMakanan(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'menu' => 'required|unique:makanans,menu,' . $request->id,
-            'harga'=>'required'
+            'harga' => 'required|integer|min:5000|max:1000000000'
         ]);
 
-        if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
         Makanan::query()->create($request->all());
         return redirect()->route('main.menus.makanan.index');
+    }
+
+    public function storeOfMinuman(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'menu' => 'required|unique:minumans,menu,' . $request->id,
+            'harga' => 'required|integer|min:3000|max:1000000000'
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        Minuman::query()->create($request->all());
+        return redirect()->route('main.menus.minuman.index');
+    }
+
+    public function storeOfSnack(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'menu' => 'required|unique:snacks,menu,' . $request->id,
+            'harga' => 'required|integer|min:1000|max:1000000000'
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        Snack::query()->create($request->all());
+        return redirect()->route('main.menus.snack.index');
     }
 
     /**
@@ -78,25 +112,65 @@ class MenuController extends Controller
      */
     public function editOfMakanan(string $id)
     {
-        $Makanan = Makanan::query()->findOrFail($id);
-        return view('main.menu.makanan.edit', compact('Makanan'));
+        $Makanans = Makanan::query()->findOrFail($id);
+        return view('main.menu.makanan.edit', compact('Makanans'));
     }
+
+    public function editOfMinuman(string $id)
+    {
+        $Minumans = Minuman::all();
+        return view('main.menu.minuman.edit', compact('Minumans'));
+    }
+
+    public function editOfSnack(string $id)
+    {
+        $Snacks = Snack::query()->findOrFail($id);
+        return view('main.menu.snack.edit', compact('Snacks'));
+    }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function updateOfMakanan(Request $request, string $id)
     {
-         $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'menu' => 'required|unique:makanans,menu,' . $request->id,
-            'harga'=>'required|integer|min:30000|max:1000000000'
+            'harga' => 'required|integer|min:5000|max:1000000000'
         ]);
 
-        if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
         Makanan::query()->findOrFail($id)->update($request->all());
         return redirect()->route('main.menus.makanan.index');
     }
+
+    public function updateOfMinuman(Request $request, string $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'menu' => 'required|unique:minumans,menu,' . $request->id,
+            'harga' => 'required|integer|min:3000|max:1000000000'
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        Makanan::query()->findOrFail($id)->update($request->all());
+        return redirect()->route('main.menus.makanan.index');
+    }
+
+    public function updateOfSnack(Request $request, string $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'menu' => 'required|unique:snacks,menu,' . $request->id,
+            'harga' => 'required|integer|min:1000|max:1000000000'
+        ]);
+
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        Makanan::query()->findOrFail($id)->update($request->all());
+        return redirect()->route('main.menus.makanan.index');
+    }
+
 
     /**
      * Remove the specified resource from storage.

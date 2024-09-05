@@ -33,15 +33,6 @@ Route::prefix('main')->group(function () {
     Route::put('kokis/{id}', [KokiController::class, 'update'])->name('main.kokis.update');
     Route::delete('kokis/{id}', [KokiController::class, 'destroy'])->name('main.kokis.destroy');
 
-
-    Route::get('pesanans', [PesananController::class, 'index'])->name('pesanans.index');
-    Route::get('pesanans/create', [PesananController::class, 'create'])->name('main.pesanans.create');
-    Route::post('pesanans', [PesananController::class, 'store'])->name('main.pesanans.store');
-    Route::get('pesanans/edit/{id}', [PesananController::class, 'edit'])->name('main.pesanans.edit');
-    Route::put('pesanans/{id}', [PesananController::class, 'update'])->name('main.pesanans.update');
-    Route::delete('pesanans/{id}', [PesananController::class, 'destroy'])->name('main.esanans.destroy');
-
-
     Route::get('pelayans', [PelayanController::class, 'index'])->name('main.pelayans.index');
     Route::get('pelayans/create', [PelayanController::class, 'create'])->name('main.pelayans.create');
     Route::post('pelayans', [PelayanController::class, 'store'])->name('main.pelayans.store');
@@ -49,30 +40,30 @@ Route::prefix('main')->group(function () {
     Route::put('pelayans/{id}', [PelayanController::class, 'update'])->name('main.pelayans.update');
     Route::delete('pelayans/{id}', [PelayanController::class, 'destroy'])->name('main.pelayans.destroy');
 
-    Route::prefix('menus')->group(function () {
-        Route::get('', [MenuController::class, 'index'])->name('main.menus.index');
+    Route::prefix('menu')->group(function () {
+        Route::get('', [MenuController::class, 'index'])->name('main.menu.index');
 
-        Route::get('makanans', [MenuController::class, 'indexOfMakanan'])->name('main.menus.makanan.index');
-        Route::get('makanans/create', [MenuController::class, 'createOfMakanan'])->name('main.menus.makanan.create');
-        Route::post('makanans', [MenuController::class, 'storeOfMakanan'])->name('main.menus.makanan.store');
-        Route::get('makanans/edit/{id}', [MenuController::class, 'editOfMakanan'])->name('main.menus.makanan.edit');
-        Route::put('makanans/{id}', [MenuController::class, 'updateOfMakanan'])->name('main.menus.makanan.update');
-        Route::delete('makanans/{id}', [MenuController::class, 'destroyOfMakanan'])->name('main.menus.makanan.destroy');
+        Route::get('makanan', [MenuController::class, 'indexOfMakanan'])->name('main.menus.makanan.index');
+        Route::get('makanan/create', [MenuController::class, 'createOfMakanan'])->name('main.menus.makanan.create');
+        Route::post('makanan', [MenuController::class, 'storeOfMakanan'])->name('main.menus.makanan.store');
+        Route::get('makanan/edit/{id}', [MenuController::class, 'editOfMakanan'])->name('main.menus.makanan.edit');
+        Route::put('makanan/{id}', [MenuController::class, 'updateOfMakanan'])->name('main.menus.makanan.update');
+        Route::delete('makanan/{id}', [MenuController::class, 'destroyOfMakanan'])->name('main.menus.makanan.destroy');
 
-        // Route::get('minumans', [MenuController::class, 'indexOfMinuman'])->name('main.menus.minuman.index');
-        // Route::get('minumans/create', [MenuController::class, 'createOfMinuman'])->name('main.menus.minuman.create');
-        // Route::post('minumans', [MenuController::class, 'storeOfMinuman'])->name('main.menus.minuman.store');
-        // Route::get('minumans/edit/{id}', [MenuController::class, 'editOfMinuman'])->name('main.menus.minuman.edit');
-        // Route::put('minumans/{id}', [MenuController::class, 'updateOfMinuman'])->name('main.menus.minuman.update');
-        // Route::delete('minumans/{id}', [MenuController::class, 'destroyOfMinuman'])->name('main.menus.minuman.destroy');
+        Route::get('minuman', [MenuController::class, 'indexOfMinuman'])->name('main.menus.minuman.index');
+        Route::get('minuman/create', [MenuController::class, 'createOfMinuman'])->name('main.menus.minuman.create');
+        Route::post('minuman', [MenuController::class, 'storeOfMinuman'])->name('main.menus.minuman.store');
+        Route::get('minuman/edit/{id}', [MenuController::class, 'editOfMinuman'])->name('main.menus.minuman.edit');
+        Route::put('minuman/{id}', [MenuController::class, 'updateOfMinuman'])->name('main.menus.minuman.update');
+        Route::delete('minuman/{id}', [MenuController::class, 'destroyOfMinuman'])->name('main.menus.minuman.destroy');
         
 
-        // Route::get('snack', [MenuController::class, 'indexOfSnack'])->name('main.menus.snack.index');
-        // Route::get('snack/create', [MenuController::class, 'createOfSnack'])->name('main.menus.snack.create');
-        // Route::post('minuman', [MenuController::class, 'storeOfMakanan'])->name('main.menus.makanan.store');
-        // Route::get('minuman/edit/{id}', [MenuController::class, 'editOfMakanan'])->name('main.menus.makanan.edit');
-        // Route::put('minuman/{id}', [MenuController::class, 'updateOfMakanan'])->name('main.menus.makanan.update');
-        // Route::delete('minuman/{id}', [MenuController::class, 'destroyOfMakanan'])->name('main.menus.makanan.destroy');
+        Route::get('snack', [MenuController::class, 'indexOfSnack'])->name('main.menus.snack.index');
+        Route::get('snack/create', [MenuController::class, 'createOfSnack'])->name('main.menus.snack.create');
+        Route::post('snack', [MenuController::class, 'storeOfSnack'])->name('main.menus.snack.store');
+        Route::get('snack/edit/{id}', [MenuController::class, 'editOfSnack'])->name('main.menus.snack.edit');
+        Route::put('snack/{id}', [MenuController::class, 'updateOfSnack'])->name('main.menus.snack.update');
+        Route::delete('snack/{id}', [MenuController::class, 'destroyOfSnack'])->name('main.menus.snack.destroy');
         
     });
 });

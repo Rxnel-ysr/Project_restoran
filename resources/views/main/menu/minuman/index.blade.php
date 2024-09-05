@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Koki-Koki</title>
+    <title>Halaman Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('main.index') }}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('main.index') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.menu.index') }}">Menu</a>
@@ -37,30 +37,30 @@
         </div>
     </nav>
     <div class="p-3">
-        <h1>Data Koki Restoran</h1>
+        <h1>Data Minuman Restoran</h1>
         <div class="">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Divisi</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Menu</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Manipulate</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($Kokis as $Koki)
+                    @forelse ($Minumans as $Minuman)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $Koki->nama }}</td>
-                        <td>{{ $Koki->divisi }}</td>
+                        <td>{{ $Minuman->menu }}</td>
+                        <td>{{ $Minuman->harga }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('main.kokis.edit', $Koki->id) }}" class="btn btn-warning me-3">Edit</a>
-                                <form action="{{ route('main.kokis.destroy', $Koki->id) }}" method="post">
+                                <a href="{{ route('main.menus.minuman.edit', $Minuman->id) }}" class="btn btn-primary me-3">Edit</a>
+                                <form action="{{ route('main.menus.minuman.destroy', $Minuman->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Pecat</button>
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
                                 </form>
                             </div>
                         </td>
@@ -70,7 +70,7 @@
                     @endforelse
                 </tbody>
             </table>
-            <a href="{{ route('main.kokis.create') }}" type="button" class="btn btn-primary">Rekrut Koki</a>
+            <a href="{{ route('main.menus.minuman.create') }}" type="button" class="btn btn-primary">Tambah Menu Minuman</a>
         </div>
     </div>
 </body>

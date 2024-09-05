@@ -24,10 +24,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('main.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Pesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
+                        <a class="nav-link" href="{{ route('main.menu.index') }}">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.pelayans.index') }}">Pelayan</a>

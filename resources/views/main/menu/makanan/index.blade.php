@@ -21,19 +21,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('main.index') }}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('main.index') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Pesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
+                        <a class="nav-link" href="{{ route('main.menu.index') }}">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.pelayans.index') }}">Pelayan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('main.kokis.index') }}">koki-Koki</a>
+                        <a class="nav-link" href="{{ route('main.kokis.index') }}">Koki Koki</a>
                     </li>
                 </ul>
             </div>
@@ -73,7 +70,7 @@
                     @endforelse
                 </tbody>
             </table>
-            <a href="{{ route('main.menus.makanan.create') }}" type="button" class="btn btn-primary">Tambah Makanan</a>
+            <a href="{{ route('main.menus.makanan.create') }}" type="button" class="btn btn-primary">Tambah Menu Makanan</a>
         </div>
     </div>
 </body>
