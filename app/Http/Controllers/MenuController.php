@@ -118,9 +118,9 @@ class MenuController extends Controller
 
     public function editOfMinuman(string $id)
     {
-        $Minumans = Minuman::all();
+        $Minumans = Minuman::query()->findOrFail($id);
         return view('main.menu.minuman.edit', compact('Minumans'));
-    }
+    } 
 
     public function editOfSnack(string $id)
     {
@@ -154,8 +154,8 @@ class MenuController extends Controller
 
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
-        Makanan::query()->findOrFail($id)->update($request->all());
-        return redirect()->route('main.menus.makanan.index');
+        Minuman::query()->findOrFail($id)->update($request->all());
+        return redirect()->route('main.menus.minuman.index');
     }
 
     public function updateOfSnack(Request $request, string $id)
@@ -167,8 +167,8 @@ class MenuController extends Controller
 
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
-        Makanan::query()->findOrFail($id)->update($request->all());
-        return redirect()->route('main.menus.makanan.index');
+        Snack::query()->findOrFail($id)->update($request->all());
+        return redirect()->route('main.menus.snack.index');
     }
 
 
@@ -179,5 +179,17 @@ class MenuController extends Controller
     {
         Makanan::query()->findOrFail($id)->delete();
         return redirect()->route('main.menus.makanan.index');
+    }
+
+    public function destroyOfMinuman(string $id)
+    {
+        Minuman::query()->findOrFail($id)->delete();
+        return redirect()->route('main.menus.minuman.index');
+    }
+
+    public function destroyOfSnack(string $id)
+    {
+        Snack::query()->findOrFail($id)->delete();
+        return redirect()->route('main.menus.snack.index');
     }
 }

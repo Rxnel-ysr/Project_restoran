@@ -19,7 +19,7 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Menu</label>
                     <input type="text" name="menu" class="form-control" value="{{ $Makanans->menu}}" id="nama">
-                    @error('nama')
+                    @error('menu')
                     <small>{{ $message }}</small>
                     @enderror
                 </div>

@@ -40,7 +40,7 @@ Route::prefix('main')->group(function () {
     Route::put('pelayans/{id}', [PelayanController::class, 'update'])->name('main.pelayans.update');
     Route::delete('pelayans/{id}', [PelayanController::class, 'destroy'])->name('main.pelayans.destroy');
 
-    Route::prefix('menu')->group(function () {
+    Route::prefix('menus')->group(function () {
         Route::get('', [MenuController::class, 'index'])->name('main.menu.index');
 
         Route::get('makanan', [MenuController::class, 'indexOfMakanan'])->name('main.menus.makanan.index');

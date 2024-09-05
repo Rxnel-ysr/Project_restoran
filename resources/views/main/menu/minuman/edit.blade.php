@@ -13,13 +13,13 @@
     <div class="p-3">
         <h1>Edit Minuman</h1>
         <div class="">
-            <form action="{{ route('main.menus.makanan.update', $Minumans->id) }}" method="POST">
+            <form action="{{ route('main.menus.minuman.update', $Minumans->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="form-label">Menu</label>
                     <input type="text" name="menu" class="form-control" value="{{ $Minumans->menu}}" id="nama">
-                    @error('nama')
+                    @error('menu')
                     <small>{{ $message }}</small>
                     @enderror
                 </div>
@@ -30,7 +30,7 @@
                     <small>{{ $message }}</small>
                     @enderror
                 </div>
-                <a href="{{ route('main.menus.makanan.index') }}" type="button" class="btn btn-warning">Kembali</a>
+                <a href="{{ route('main.menus.minuman.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Ganti</button>
             </form>
         </div>

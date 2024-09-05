@@ -46,7 +46,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th schope="col">Bekerja sejak</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Atur</th>
                     </tr>
                 </thead>
                 <tbody>

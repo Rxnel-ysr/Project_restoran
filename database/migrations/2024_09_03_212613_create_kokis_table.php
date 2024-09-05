@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->unique();
             $table->string('divisi');
+            $table->timestamp('bekerja_sejak');
             $table->timestamps();
         });
     }
