@@ -13,9 +13,5 @@ class MainController extends Controller
     {
         return view('main.index');
     }
-
-    public function indexOfKokis()
-    {
-        return view('main.koki.index');
-    }
+    
 }

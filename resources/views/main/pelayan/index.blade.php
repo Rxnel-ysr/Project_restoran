@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Koki-Koki</title>
+    <title>Halaman Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -40,27 +40,30 @@
         </div>
     </nav>
     <div class="p-3">
-        <h1>Data Koki Restoran</h1>
+        <h1>Data Pelayan Restoran</h1>
         <div class="">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Divisi</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th schope="col">Bekerja sejak</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($Kokis as $Koki)
+                    @forelse ($Pelayans as $Pelayan)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $Koki->nama }}</td>
-                        <td>{{ $Koki->divisi }}</td>
+                        <td>{{ $Pelayan->nama }}</td>
+                        <td>{{ $Pelayan->jenis_kelamin }}</td>
+                        <td>{{ $Pelayan->tanggal_diterima}}</td>
+
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('main.kokis.edit', $Koki->id) }}" class="btn btn-warning me-3">Edit</a>
-                                <form action="{{ route('main.kokis.destroy', $Koki->id) }}" method="post">
+                                <a href="{{ route('main.pelayans.edit', $Pelayan->id) }}" class="btn btn-primary me-3">Edit</a>
+                                <form action="{{ route('main.pelayans.destroy', $Pelayan->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Pecat</button>
@@ -73,7 +76,7 @@
                     @endforelse
                 </tbody>
             </table>
-            <a href="{{ route('main.kokis.create') }}" type="button" class="btn btn-primary">Rekrut Koki</a>
+            <a href="{{ route('main.pelayans.create') }}" type="button" class="btn btn-primary">Rekrut Pelayan</a>
         </div>
     </div>
 </body>

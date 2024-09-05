@@ -12,9 +12,9 @@
 
 <body>
     <div class="p-3">
-        <h1>Tambahkan Data Koki</h1>
+        <h1>Tambahkan Data Pelayan</h1>
         <div class="">
-            <form action="{{ route('main.kokis.store') }}" method="POST">
+            <form action="{{ route('main.pelayans.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
@@ -24,14 +24,13 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="divisi" class="form-label">Divisi</label>
-                    <select name="divisi" id="divisi" class="form-control">
-                        <option value="Soup">Soup</option>
-                        <option value="Pasta">Pasta</option>
-                        <option value="Desert">Desert</option>
+                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                        <option value="Perempuan">Perempuan</option>
+                        <option value="Laki-Laki">Laki laki</option>
                     </select>
                 </div>
-                <a href="{{ route('main.kokis.index') }}" type="button" class="btn btn-warning">Kembali</a>
+                <a href="{{ route('main.pelayans.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Rekrut</button>
             </form>
         </div>
