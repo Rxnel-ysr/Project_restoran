@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Koki;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\View;
 
 class KokiController extends Controller
 {
