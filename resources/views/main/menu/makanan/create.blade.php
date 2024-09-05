@@ -14,33 +14,17 @@
     <div class="p-3">
         <h1>Tambahkan Data Menu</h1>
         <div class="">
-            <form action="{{ route('Menus.store') }}" method="POST">
+            <form action="{{ route('main.menus.makanan.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="makanan" class="form-label">Makanan</label>
-                    <input type="text" name="Makanan" class="form-control" id="makanan">
+                    <label for="menu" class="form-label">Makanan</label>
+                    <input type="text" name="menu" class="form-control" id="menu">
                 </div>
                 <div class="mb-3">
-                    <label for="Harga_Makanan" class="form-label">Harga Makanan</label>
-                    <input type="number" name="Harga_Makanan" class="form-control" id="Harga_Makanan">
+                    <label for="harga" class="form-label">Harga Makanan</label>
+                    <input type="number" name="harga" class="form-control" id="harga">
                 </div>
-                <div class="mb-3">
-                    <label for="minuman" class="form-label">Minuman</label>
-                    <input type="text" name="Minuman" class="form-control" id="minuman">
-                </div>
-                <div class="mb-3">
-                    <label for="Harga_Minuman" class="form-label">Harga Minuman</label>
-                    <input type="number" name="Harga_Minuman" class="form-control" id="Harga_Minuman">
-                </div>
-                <div class="mb-3">
-                    <label for="snack" class="form-label">Snack</label>
-                    <input type="text" name="Snack" class="form-control" id="snack">
-                </div>
-                <div class="mb-3">
-                    <label for="Harga_Snack" class="form-label">Harga Snack</label>
-                    <input type="number" name="Harga_Snack" class="form-control" id="Harga_Snack">
-                </div>
-                <a href="{{ route('Menus.index') }}" type="button" class="btn btn-warning">Kembali</a>
+                <a href="{{ route('main.menus.makanan.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Kirim</button>
             </form>
         </div>

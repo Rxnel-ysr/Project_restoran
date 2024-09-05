@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($Makanan as $Makanan)
+                    @forelse ($Makanans as $Makanan)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $Makanan->menu }}</td>
@@ -60,7 +60,7 @@
                         <td>
                             <div class="d-flex">
                                 <a href="{{ route('main.menus.makanan.edit', $Makanan->id) }}" class="btn btn-primary me-3">Edit</a>
-                                <form action="{{ route('main.menus.makanan..destroy', $Makanan->id) }}" method="post">
+                                <form action="{{ route('main.menus.makanan.destroy', $Makanan->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Hapus</button>

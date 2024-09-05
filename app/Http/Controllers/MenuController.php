@@ -21,20 +21,20 @@ class MenuController extends Controller
 
     public function indexOfMakanan()
     {
-        $Makanan = Makanan::all();
-        return view('main.menu.makanan.index', compact('Makanan'));
+        $Makanans = Makanan::all();
+        return view('main.menu.makanan.index', compact('Makanans'));
     }
 
     public function indexOfMinuman()
     {
-        $Minuman = Minuman::all();
-        return view('main.menu.minuman.index', compact('Minuman'));
+        $Minumans = Minuman::all();
+        return view('main.menu.minuman.index', compact('Minumans'));
     }
 
     public function indexOfSnack()
     {
-        $Snack = Snack::all(); 
-        return view('main.menu.snack.index', compact('Snack'));
+        $Snacks = Snack::all(); 
+        return view('main.menu.snack.index', compact('Snacks'));
     }
 
     /**
@@ -59,7 +59,7 @@ class MenuController extends Controller
             'harga'=>'required'
         ]);
 
-        if($validator->fails()) return redirect()->route('main.menus.makanan.create')->withInput()->withErrors($validator);
+        if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
         Makanan::query()->create($request->all());
         return redirect()->route('main.menus.makanan.index');
@@ -76,22 +76,23 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editOfMakanan(string $id)
     {
-        return view('main.menu.makanan.edit');
+        $Makanan = Makanan::query()->findOrFail($id);
+        return view('main.menu.makanan.edit', compact('Makanan'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateOfMakanan(Request $request, string $id)
     {
-        $validator = Validator::make($request->all(),[
+         $validator = Validator::make($request->all(),[
             'menu' => 'required|unique:makanans,menu,' . $request->id,
-            'harga'=>'required'
+            'harga'=>'required|integer|min:30000|max:1000000000'
         ]);
 
-        if($validator->fails()) return redirect()->route('main.menus.makanan.create')->withInput()->withErrors($validator);
+        if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
         Makanan::query()->findOrFail($id)->update($request->all());
         return redirect()->route('main.menus.makanan.index');
@@ -100,8 +101,9 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyOfMakanan(string $id)
     {
-        //
+        Makanan::query()->findOrFail($id)->delete();
+        return redirect()->route('main.menus.makanan.index');
     }
 }
