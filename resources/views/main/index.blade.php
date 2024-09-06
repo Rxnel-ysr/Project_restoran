@@ -29,7 +29,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 14px 20px;
+            padding: 14px 20px
             margin: 0 10px;
             background-color: #555;
             border-radius: 4px;

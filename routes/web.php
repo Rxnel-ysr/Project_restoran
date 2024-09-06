@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KokiController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MenuController;
-use App\Http\Controllers\PesananController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PelayanController;
 
 /*
@@ -19,8 +19,10 @@ use App\Http\Controllers\PelayanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('auth.index');
 });
+
+Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('main', [MainController::class, 'index'])->name('main.index');
 

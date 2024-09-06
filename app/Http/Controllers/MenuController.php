@@ -62,10 +62,10 @@ class MenuController extends Controller
      */
     public function storeOfMakanan(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'menu' => 'required|unique:makanans,menu,' . $request->id,
-            'harga' => 'required|integer|min:5000|max:1000000000'
-        ]);
+         $validator = Validator::make($request->all(), [
+             'menu' => 'required|unique:makanans,menu,' . $request->id,
+             'harga' => 'required|integer|min:5000|max:1000000000'
+         ]);
 
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
