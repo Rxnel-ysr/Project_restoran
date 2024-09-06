@@ -105,7 +105,7 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $Makanan->menu }}</td>
-                        <td>{{ $Makanan->harga }}</td>
+                        <td>Rp {{ $Makanan->harga }}</td>
                     </tr>
                     @empty
                     <p>Menu Kosong</p>
@@ -128,7 +128,7 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $Minuman->menu }}</td>
-                        <td>{{ $Minuman->harga }}</td>
+                        <td>Rp {{ $Minuman->harga }}</td>
                     </tr>
                     @empty
                     <p>Menu Kosong</p>
@@ -151,7 +151,7 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $Snack->menu }}</td>
-                        <td>{{ $Snack->harga }}</td>
+                        <td>Rp {{ $Snack->harga }}</td>
                     </tr>
                     @empty
                     <p>Menu Kosong</p>

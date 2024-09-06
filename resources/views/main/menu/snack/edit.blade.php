@@ -11,7 +11,7 @@
 
 <body>
     <div class="p-3">
-        <h1>Edit Minuman</h1>
+        <h1>Edit Snack {{ $Snacks->menu }}</h1>
         <div class="">
             <form action="{{ route('main.menus.snack.update', $Snacks->id) }}" method="POST">
                 @csrf
@@ -30,7 +30,7 @@
                     <small>{{ $message }}</small>
                     @enderror
                 </div>
-                <a href="{{ route('main.menus.minuman.index') }}" type="button" class="btn btn-warning">Kembali</a>
+                <a href="{{ route('main.menus.snack.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Ganti</button>
             </form>
         </div>

@@ -24,7 +24,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="harga" class="form-label">Harga Makanan</label>
+                    <label for="harga" class="form-label">Harga Makanan(Rp)</label>
                     <input type="number" name="harga" class="form-control" id="harga">
                     @error('harga')
                     <small>{{ $message }}</small>

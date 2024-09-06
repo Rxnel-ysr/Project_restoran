@@ -11,7 +11,7 @@
 
 <body>
     <div class="p-3">
-        <h1>Edit Makanan</h1>
+        <h1>Edit Makanan {{ $Makanans->menu }}</h1>
         <div class="">
             <form action="{{ route('main.menus.makanan.update', $Makanans->id) }}" method="POST">
                 @csrf

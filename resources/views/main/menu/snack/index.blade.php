@@ -53,7 +53,7 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $Snack->menu }}</td>
-                        <td>{{ $Snack->harga }}</td>
+                        <td>Rp {{ $Snack->harga }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="{{ route('main.menus.snack.edit', $Snack->id) }}" class="btn btn-primary me-3">Edit</a>
