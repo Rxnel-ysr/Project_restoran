@@ -37,12 +37,12 @@
         </div>
     </nav>
     <div class="p-3">
-        <h1>Data Makanan Restoran</h1>
+        <h1>Data Snack Restoran</h1>
         <div class="">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Menu</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Manipulate</th>
@@ -66,7 +66,7 @@
                         </td>
                     </tr>
                     @empty
-                    <p>Data Kosong</p>
+                    <p>Menu Kosong</p>
                     @endforelse
                 </tbody>
             </table>

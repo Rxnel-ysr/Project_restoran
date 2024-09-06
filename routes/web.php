@@ -19,10 +19,9 @@ use App\Http\Controllers\PelayanController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('auth.index');
+    return redirect()->route('main.index');
 });
 
-Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('main', [MainController::class, 'index'])->name('main.index');
 

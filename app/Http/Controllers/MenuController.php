@@ -16,7 +16,10 @@ class MenuController extends Controller
 
     public function index()
     {
-        return view('main.menu.index');
+        $Makanans = Makanan::all();
+        $Minumans = Minuman::all();
+        $Snacks = Snack::all();
+        return view('main.menu.index', compact('Makanans', 'Minumans', 'Snacks'));
     }
 
     public function indexOfMakanan()
@@ -28,7 +31,6 @@ class MenuController extends Controller
     public function indexOfMinuman()
     {
         $Minumans = Minuman::all();
-        
         return view('main.menu.minuman.index', compact('Minumans'));
     }
 
