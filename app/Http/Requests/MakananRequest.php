@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MakananRequest extends FormRequest
@@ -22,8 +23,8 @@ class MakananRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'menu' => 'required|unique:makanans,menu',
-            'harga' => 'required|min:5000|max:1000000'
+            'menu'   => ['required', Rule::unique('makanans')->ignore($this->id)],
+            'harga' => 'required|integer|min:5000|max:1000000'
         ];
     }
 

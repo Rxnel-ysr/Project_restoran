@@ -54,7 +54,7 @@ class KokiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(KokiRequest $request, string $id)
     {
         Koki::query()->findOrFail($id)->update($request->validated());
         return redirect()->route('main.kokis.index');

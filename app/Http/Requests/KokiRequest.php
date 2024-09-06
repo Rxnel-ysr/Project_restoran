@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class KokiRequest extends FormRequest
@@ -22,7 +23,7 @@ class KokiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => 'required|unique:kokis,nama',
+            'nama'   => ['required', Rule::unique('kokis')->ignore($this->id)],
             'divisi' => 'required'
         ];
     }

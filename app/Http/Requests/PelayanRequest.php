@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PelayanRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class PelayanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => 'required|unique:pelayans,nama',
+            'nama'   => ['required', Rule::unique('pelayans')->ignore($this->id)],            
             'jenis_kelamin' => 'required'
         ];
     }

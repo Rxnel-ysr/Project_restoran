@@ -30,14 +30,8 @@ class PelayanController extends Controller
      */
     public function store(PelayanRequest $request)
     {
-        $validator = Validator::make($request->all(),[
-            'nama' => 'required|unique:pelayans,nama,' . $request->id,
-            'jenis_kelamin'=>'required'
-        ]);
-
-        if($validator->fails()) return redirect()->route('main.pelayans.create')->withInput()->withErrors($validator);
-
-        Pelayan::query()->create($request->all());
+        
+        Pelayan::query()->create($request->validated());
         return redirect()->route('main.pelayans.index');
     }
 
@@ -63,14 +57,8 @@ class PelayanController extends Controller
      */
     public function update(PelayanRequest $request, string $id)
     {
-        $validator = Validator::make($request->all(),[
-            'nama' => 'required|unique:pelayans,nama,' . $request->id,
-            'jenis_kelamin'=>'required'
-        ]);
-
-        if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
-
-        Pelayan::query()->findOrFail($id)->update($request->all());
+        
+        Pelayan::query()->findOrFail($id)->update($request->validated());
         return redirect()->route('main.pelayans.index');
     }
 

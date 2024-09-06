@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class MinumanRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class MinumanRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +23,8 @@ class MinumanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'menu' => 'required|unique:makanans,menu',
-            'harga' => 'required|min:5000|max:1000000'
+            'menu'   => ['required', Rule::unique('minumans')->ignore($this->id)],
+            'harga' => 'required|integer|min:3000|max:1000000'
         ];
     }
 
