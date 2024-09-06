@@ -30,7 +30,7 @@
                         <a class="nav-link" href="{{ route('main.pelayans.index') }}">Pelayan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('main.kokis.index') }}">koki-Koki</a>
+                        <a class="nav-link" href="{{ route('main.kokis.index') }}">koki Koki</a>
                     </li>
                 </ul>
             </div>
@@ -56,10 +56,9 @@
                         <td>{{ $Pelayan->nama }}</td>
                         <td>{{ $Pelayan->jenis_kelamin }}</td>
                         <td>{{ $Pelayan->tanggal_diterima}}</td>
-
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('main.pelayans.edit', $Pelayan->id) }}" class="btn btn-primary me-3">Edit</a>
+                                <a href="{{ route('main.pelayans.edit', $Pelayan->id) }}" class="btn btn-warning me-3">Edit</a>
                                 <form action="{{ route('main.pelayans.destroy', $Pelayan->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')

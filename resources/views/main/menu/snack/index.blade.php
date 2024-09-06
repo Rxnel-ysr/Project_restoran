@@ -56,7 +56,7 @@
                         <td>Rp {{ $Snack->harga }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('main.menus.snack.edit', $Snack->id) }}" class="btn btn-primary me-3">Edit</a>
+                                <a href="{{ route('main.menus.snack.edit', $Snack->id) }}" class="btn btn-warning me-3">Edit</a>
                                 <form action="{{ route('main.menus.snack.destroy', $Snack->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')

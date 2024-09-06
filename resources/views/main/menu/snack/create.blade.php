@@ -15,20 +15,23 @@
         <h1>Tambahkan Data Menu</h1>
         <div class="">
             <form action="{{ route('main.menus.snack.store') }}" method="POST">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @csrf
                 <div class="mb-3">
                     <label for="menu" class="form-label">Snack</label>
                     <input type="text" name="menu" class="form-control" id="menu">
-                    @error('menu')
-                    <small>{{ $message }}</small>
-                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="harga" class="form-label">Harga Snack(Rp)</label>
                     <input type="number" name="harga" class="form-control" id="harga">
-                    @error('harga')
-                    <small>{{ $message }}</small>
-                    @enderror
                 </div>
                 <a href="{{ route('main.menus.snack.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Tambah</button>

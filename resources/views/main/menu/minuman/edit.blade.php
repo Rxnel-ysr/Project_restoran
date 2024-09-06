@@ -14,21 +14,24 @@
         <h1>Edit Minuman {{ $Minumans->menu }}</h1>
         <div class="">
             <form action="{{ route('main.menus.minuman.update', $Minumans->id) }}" method="POST">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="form-label">Menu</label>
                     <input type="text" name="menu" class="form-control" value="{{ $Minumans->menu}}" id="nama">
-                    @error('menu')
-                    <small>{{ $message }}</small>
-                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="harga" class="form-label">Harga Makanan</label>
                     <input type="number" name="harga" class="form-control" id="harga" value="{{ $Minumans->harga }}">
-                    @error('harga')
-                    <small>{{ $message }}</small>
-                    @enderror
                 </div>
                 <a href="{{ route('main.menus.minuman.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Ganti</button>

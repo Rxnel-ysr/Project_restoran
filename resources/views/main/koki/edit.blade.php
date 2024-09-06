@@ -14,24 +14,29 @@
         <h1>Edit Data Koki</h1>
         <div class="">
             <form action="{{ route('main.kokis.update', $Koki->id) }}" method="POST">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
                     <input type="text" name="nama" class="form-control" value="{{ $Koki->nama}}"
                         id="nama">
-                        @error('nama')
-                            <small>{{ $message }}</small>
-                        @enderror
                 </div>
                 <div class="mb-3">
                     <label for="nisn" class="form-label">Divisi</label>
                     <select name="divisi" id="divisi" class="form-control" value="{{ $Koki->divisi }}">
-                        <option value="Soup">Soup</option>
-                        <option value="Pasta">Pasta</option>
-                        <option value="Desert">Desert</option>
+                        <option {{ $Koki->divisi == "Soup" ? 'selected' : "" }} value="Soup">Soup</option>
+                        <option {{ $Koki->divisi == "Pasta" ? 'selected' : "" }} value="Pasta">Pasta</option>
+                        <option {{ $Koki->divisi == "Desert" ? 'selected' : "" }} value="Desert">Desert</option>
                     </select>
-                    <small>Divisi Sebelumnya: {{ $Koki->divisi }}</small>
                 </div>
                 <a href="{{ route('main.kokis.index') }}" type="button" class="btn btn-warning">Kembali</a>
                 <button type="submit" class="btn btn-primary">Ganti</button>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PelayanRequest;
 use App\Models\Pelayan;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class PelayanController extends Controller
@@ -28,7 +28,7 @@ class PelayanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PelayanRequest $request)
     {
         $validator = Validator::make($request->all(),[
             'nama' => 'required|unique:pelayans,nama,' . $request->id,
@@ -61,7 +61,7 @@ class PelayanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PelayanRequest $request, string $id)
     {
         $validator = Validator::make($request->all(),[
             'nama' => 'required|unique:pelayans,nama,' . $request->id,

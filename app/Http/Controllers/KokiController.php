@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KokiRequest;
 use App\Models\Koki;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
 class KokiController extends Controller
 {
     /**
@@ -28,16 +27,10 @@ class KokiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(KokiRequest $request)
     {
-        $validator = Validator::make($request->all(),[
-            'nama' => 'required|unique:kokis,nama,' . $request->id,
-            'divisi'=>'required'
-        ]);
 
-        if($validator->fails()) return redirect()->route('main.kokis.create')->withInput()->withErrors($validator);
-
-        Koki::query()->create($request->all());
+        Koki::query()->create($request->validated());
         return redirect()->route('main.kokis.index');
     }
 
@@ -63,14 +56,7 @@ class KokiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         $validator = Validator::make($request->all(),[
-            'nama' => 'required|unique:kokis,nama,' . $request->id,
-            'divisi'=>'required'
-        ]);
-
-        if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
-
-        Koki::query()->findOrFail($id)->update($request->all());
+        Koki::query()->findOrFail($id)->update($request->validated());
         return redirect()->route('main.kokis.index');
     }
 

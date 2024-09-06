@@ -15,13 +15,19 @@
         <h1>Rekrut  Pelayan Baru</h1>
         <div class="">
             <form action="{{ route('main.pelayans.store') }}" method="POST">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
                     <input type="text" name="nama" class="form-control" id="name">
-                    @error('nama')
-                        <small>{{ $message }}</small>
-                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
