@@ -87,7 +87,7 @@
 
     <div class="container">
         <div class="content">
-            <h2>Menu Menu</h2>
+            <h2>Menu</h2>
             <p>Pilihan Menu Yang Tersedia.</p>
         </div>
         <div class="p-3" id="Makanans">

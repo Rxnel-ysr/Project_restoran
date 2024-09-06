@@ -45,7 +45,7 @@
                         <th scope="col">No</th>
                         <th scope="col">Menu</th>
                         <th scope="col">Harga</th>
-                        <th scope="col">Manipulate</th>
+                        <th scope="col">Atur</th>
                     </tr>
                 </thead>
                 <tbody>

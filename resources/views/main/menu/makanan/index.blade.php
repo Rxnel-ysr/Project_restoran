@@ -45,7 +45,7 @@
                         <th scope="col">No</th>
                         <th scope="col">Menu</th>
                         <th scope="col">Harga</th>
-                        <th scope="col">Manipulate</th>
+                        <th scope="col">Atur</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,7 +60,7 @@
                                 <form action="{{ route('main.menus.makanan.destroy', $Makanan->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                    <button type="submit" class="btn btn-danger" onclick="">Hapus</button>
                                 </form>
                             </div>
                         </td>
